@@ -1,0 +1,16 @@
+# ==============================================================================
+# CardioAI - Development, Testing & Notebook Dependencies
+# ==============================================================================
+
+-r requirements.txt
+
+# Automated Unit & Integration Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Code Quality & Linting
+ruff>=0.2.0
+
+# Interactive Analysis & Notebooks
+ipykernel>=6.28.0
+notebook>=7.0.0

@@ -1,0 +1,27 @@
+# ==============================================================================
+# CardioAI - Core Dependencies (Phase 1: Foundation & Baseline Pipeline)
+# Recommended Python Version: 3.11.x (for maximum wheel & library stability)
+# ==============================================================================
+
+# Scientific & Array Computing
+numpy>=1.26.0
+
+# Scientific Signal Processing & Mathematics
+scipy>=1.11.0
+
+# Tabular Data Analysis (PTB-XL metadata & scp_statements)
+pandas>=2.1.0
+
+# Biomedical ECG Waveform Processing (PhysioNet WFDB format reader)
+wfdb>=4.1.2
+
+# Classical Machine Learning & Baseline Classifiers
+scikit-learn>=1.3.0
+
+# Data & Waveform Visualization
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Utilities & Configuration
+tqdm>=4.66.0
+pyyaml>=6.0.1

@@ -1,0 +1,61 @@
+# ==============================================================================
+# CardioAI - Baseline Experiment Configuration (Phase 1)
+# ==============================================================================
+
+project:
+  name: "CardioAI"
+  version: "0.1.0"
+  random_seed: 42
+
+dataset:
+  name: "PTB-XL"
+  version: "1.0.3"
+  source_url: "https://physionet.org/content/ptb-xl/1.0.3/"
+  target_diagnostic_superclass: "MI" # Myocardial Infarction label subset
+  sampling_rate: 100 # Hz (PTB-XL offers 100 Hz and 500 Hz; 100 Hz is ideal for student laptop baseline)
+  duration_seconds: 10
+  expected_leads: 12
+  lead_names:
+    - "I"
+    - "II"
+    - "III"
+    - "aVR"
+    - "aVL"
+    - "aVF"
+    - "V1"
+    - "V2"
+    - "V3"
+    - "V4"
+    - "V5"
+    - "V6"
+
+preprocessing:
+  baseline_filter:
+    enabled: true
+    type: "butterworth_bandpass"
+    lowcut_hz: 0.5
+    highcut_hz: 40.0
+    order: 2
+  normalization:
+    method: "z_score" # Standardize per recording (zero mean, unit variance)
+
+model:
+  type: "baseline_logistic_regression"
+  hyperparameters:
+    max_iter: 1000
+    C: 1.0
+    class_weight: "balanced" # Address severe class imbalance in medical datasets
+    solver: "lbfgs"
+
+evaluation:
+  stratified_fold_col: "strat_fold" # Official PTB-XL stratified fold assignment (1-10)
+  test_folds: [9, 10]
+  val_folds: [8]
+  train_folds: [1, 2, 3, 4, 5, 6, 7]
+  metrics:
+    - "sensitivity" # Recall of positive MI cases
+    - "specificity" # True negative rate
+    - "precision"
+    - "f1_score"
+    - "roc_auc"
+    - "pr_auc"

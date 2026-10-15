@@ -1,0 +1,2 @@
+# This directory is for raw PTB-XL downloads.
+# Raw dataset files are ignored by git to protect against committing medical datasets.

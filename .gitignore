@@ -1,0 +1,81 @@
+# ==========================================
+# CardioAI - Git Ignore Configuration
+# ==========================================
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Medical Datasets & Large Raw Data (PHYSIONET / PTB-XL)
+# NEVER commit medical dataset waveforms or private records!
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+*.dat
+*.hea
+*.xyz
+*.mat
+*.tar.gz
+*.zip
+*.parquet
+
+# Sample test data directory retains only synthetic fixtures
+data/sample/*
+!data/sample/.gitkeep
+!data/sample/synthetic_sample.csv
+
+# Model Checkpoints and Serialized Weights
+models/saved/*
+!models/saved/.gitkeep
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# Testing & Code Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# IDEs & System files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Frontend builds (for Phase 3)
+frontend/node_modules/
+frontend/dist/
+frontend/.next/
+frontend/out/
+frontend/.turbo/
